@@ -6,32 +6,33 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class TCCamposMandatoriosPromotor {
-	
+
 	private WebDriver driver;
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
 	
-	// Locators
-	By nit = By.id("nit-error") ;
-	By razonSocial=By.id("razonSocial-error");
-	By tipoPatrocinio=By.id("tipoPatrocinio-error");;
-	By tipoAporte=By.id("tipoAporte-error");
-	By periocidad=By.id("periodicidad-error");
-	By otraPeriocidad = By.id("otraPeriodicidad-error");
-	By valorTope= By.id("valorTope-error");
-	By cantidadEmpleado= By.id("cantidadEmpleadosPrograma-error");
+	String campoRequerido = "Campo requerido";
+	String nombrePromotor = "LINA MARCELA PUERTA CARMONA";
+	String cedulaPromotor = "43205954";
 	
-
+	By nit = By.id("nit-error");
+	By razonSocial = By.id("razonSocial-error");
+	By tipoPatrocinio = By.id("tipoPatrocinio-error");;
+	By tipoAporte = By.id("tipoAporte-error");
+	By periocidad = By.id("periodicidad-error");
+	By otraPeriocidad = By.id("otraPeriodicidad-error");
+	By valorTope = By.id("valorTope-error");
+	By cantidadEmpleado = By.id("cantidadEmpleadosPrograma-error");
+	By paginaPatrocinio = By.cssSelector("a[title=\"Patrocinio de empleados\"] > span");
+	By cedulaPromotorLocator = By.id("cedulaPromotor");
+	By nombrePromotorLocator = By.id("nombrePromotor");
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		driver = new FirefoxDriver();
@@ -41,33 +42,20 @@ public class TCCamposMandatoriosPromotor {
 
 	@Test
 	public void camposMandatoriosPromotor() throws Exception {
-
 		loginPortal();
-		
-		String campoRequerido = "Campo requerido";
-		String nombrePromotor = "LINA MARCELA PUERTA CARMONA";
-		String cedulaPromotor = "43205954";
-		By cedulaPromotorLocator = By.id("cedulaPromotor");
-		By nombrePromotorLocator = By.id("nombrePromotor");
-		
 		assertEquals("", driver.getTitle());
-		
-		driver.findElement(By.cssSelector("a[title=\"Patrocinio de empleados\"] > span")).click();
-
+		driver.findElement(paginaPatrocinio).click();
 		try {
 			assertEquals(cedulaPromotor, driver.findElement(cedulaPromotorLocator).getAttribute("value"));
 		} catch (Error e) {
 			verificationErrors.append(e.toString());
 		}
-
 		try {
-			assertEquals(nombrePromotor,driver.findElement(nombrePromotorLocator).getAttribute("value"));
+			assertEquals(nombrePromotor, driver.findElement(nombrePromotorLocator).getAttribute("value"));
 		} catch (Error e) {
 			verificationErrors.append(e.toString());
 		}
-
 		driver.findElement(By.name("enviar")).click();
-		
 		assertEquals(campoRequerido, driver.findElement(nit).getText());
 		assertEquals(campoRequerido, driver.findElement(razonSocial).getText());
 		assertEquals(campoRequerido, driver.findElement(tipoPatrocinio).getText());
@@ -81,33 +69,18 @@ public class TCCamposMandatoriosPromotor {
 	}
 
 	public void loginPortal() {
-		
 		By idNovell = By.name("IdNovell");
-		
 		By name = By.name("Clave");
-		
 		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
-		
-		driver.get(baseUrl+ url);
-		//assertEquals("Protección - Login", driver.getTitle());
-		
+		driver.get(baseUrl + url);
+		assertEquals("Protección - Login", driver.getTitle());
 		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
-		
 		driver.findElement(idNovell).clear();
 		driver.findElement(idNovell).sendKeys("lpuerta");
 		driver.findElement(name).sendKeys("Proteccion2015");
-		
-		WebElement findOwnerLink = (new WebDriverWait(driver, 30)).until(new ExpectedCondition<WebElement>() {
-		    public WebElement apply(WebDriver d) {
-		        d.get(baseUrl);
-		        return d.findElement(By.name("send"));
-		    }
-		});
-
-		findOwnerLink.click();
-		
+		driver.findElement(By.name("send")).click();
 	}
-	
+
 	@AfterTest
 	public void afterTest() throws Exception {
 		driver.quit();

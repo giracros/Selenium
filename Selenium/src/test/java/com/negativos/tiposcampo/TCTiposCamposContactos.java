@@ -16,6 +16,11 @@ public class TCTiposCamposContactos {
 	
 	private WebDriver driver;
 	private String baseUrl;
+	String campoAlfabetico = "Campo alfabético";
+	String campoInvalido = "Correo inválido";
+	String campoNumerico = "Campo numérico";
+	String campoRequerido = "Campo requerido";
+	String campoInvalidoPorcentaje = "Valor % inválido";
 
 	@BeforeTest
 	public void setUp() throws Exception {
@@ -50,28 +55,16 @@ public class TCTiposCamposContactos {
 		driver.findElement(By.id("aporteAhorroEmpleado")).clear();
 		driver.findElement(By.id("aporteAhorroEmpleado")).sendKeys("asd");
 		driver.findElement(By.name("enviar")).click();
-		
-		
-		
-		assertEquals("Campo alfabético", driver.findElement(By.id("nombreCompleto-error")).getText());
-		
-		assertEquals("Campo alfabético", driver.findElement(By.id("cargo-error")).getText());
-		
-		assertEquals("Correo inválido", driver.findElement(By.id("email-error")).getText());
-		
-		
-		assertEquals("Campo numérico", driver.findElement(By.id("nit-error")).getText());
-		
-		assertEquals("Campo numérico", driver.findElement(By.id("celular-error")).getText());
-		
-		assertEquals("Campo numérico", driver.findElement(By.id("telefono-error")).getText());
-		
-		assertEquals("Valor % inválido", driver.findElement(By.id("aporteAhorroEmpleado-error")).getText());
-		
-		assertEquals("Campo requerido", driver.findElement(By.id("razonSocial-error")).getText());
-		
+	
+		assertEquals(campoAlfabetico, driver.findElement(By.id("nombreCompleto-error")).getText());
+		assertEquals(campoAlfabetico, driver.findElement(By.id("cargo-error")).getText());		
+		assertEquals(campoInvalido, driver.findElement(By.id("email-error")).getText());
+		assertEquals(campoNumerico, driver.findElement(By.id("nit-error")).getText());
+		assertEquals(campoNumerico, driver.findElement(By.id("celular-error")).getText());
+		assertEquals(campoNumerico, driver.findElement(By.id("telefono-error")).getText());
+		assertEquals(campoInvalidoPorcentaje, driver.findElement(By.id("aporteAhorroEmpleado-error")).getText());
+		assertEquals(campoRequerido, driver.findElement(By.id("razonSocial-error")).getText());
 		driver.findElement(By.cssSelector("span")).click();
-		
 		assertEquals("", driver.getTitle());
 	}
 	

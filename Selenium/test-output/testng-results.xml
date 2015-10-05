@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="18787" started-at="2015-10-05T18:45:35Z" finished-at="2015-10-05T18:45:53Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="18787" started-at="2015-10-05T18:45:35Z" finished-at="2015-10-05T18:45:53Z">
+      <class name="com.negativos.mandatorios.TCCamposMandatoriosAfiliado">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.negativos.mandatorios.TCCamposMandatoriosAfiliado@1554909b]" name="setUp" is-config="true" duration-ms="8265" started-at="2015-10-05T13:45:35Z" finished-at="2015-10-05T13:45:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="camposMandotoriosAfiliado()[pri:0, instance:com.negativos.mandatorios.TCCamposMandatoriosAfiliado@1554909b]" name="camposMandotoriosAfiliado" duration-ms="9419" started-at="2015-10-05T13:45:43Z" finished-at="2015-10-05T13:45:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- camposMandotoriosAfiliado -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.negativos.mandatorios.TCCamposMandatoriosAfiliado@1554909b]" name="afterTest" is-config="true" duration-ms="1071" started-at="2015-10-05T13:45:52Z" finished-at="2015-10-05T13:45:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.negativos.mandatorios.TCCamposMandatoriosAfiliado -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

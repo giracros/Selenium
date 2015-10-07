@@ -30,7 +30,7 @@ public class TCTiposCamposContactos {
 	}
 
 	@Test
-	public void testPantalla3() throws Exception {
+	public void tiposCampoContactos() throws Exception {
 		
 		loginPortal();
 	

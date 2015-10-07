@@ -64,6 +64,7 @@ public class TCCamposMandatoriosAfiliado {
 		driver.findElement(nameEnviar).click();
 		
 		driver.findElement(enviar).click();
+		
 		assertEquals(campoRequerido, driver.findElement(habeas).getText());
 		assertEquals(campoRequerido, driver.findElement(controlActivos).getText());
 		assertEquals(campoRequerido, driver.findElement(condiciones).getText());

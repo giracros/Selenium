@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.negativos.tiposcampo.TCTiposCamposAfiliado">
+      <class name="com.portal.Simulador">
         <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="tiposCampoAfiliado"/>
+          <include name="setUp"/>
+          <include name="testSimulacion1"/>
         </methods>
-      </class> <!-- com.negativos.tiposcampo.TCTiposCamposAfiliado -->
+      </class> <!-- com.portal.Simulador -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

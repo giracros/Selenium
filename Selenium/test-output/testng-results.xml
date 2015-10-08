@@ -2,50 +2,25 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="42952" started-at="2015-10-06T16:01:13Z" finished-at="2015-10-06T16:01:56Z">
+  <suite name="Default suite" duration-ms="25641" started-at="2015-10-08T15:09:19Z" finished-at="2015-10-08T15:09:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="42952" started-at="2015-10-06T16:01:13Z" finished-at="2015-10-06T16:01:56Z">
-      <class name="com.negativos.tiposcampo.TCTiposCamposAfiliado">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.negativos.tiposcampo.TCTiposCamposAfiliado@17c68925]" name="setUp" is-config="true" duration-ms="5179" started-at="2015-10-06T11:01:13Z" finished-at="2015-10-06T11:01:18Z">
+    <test name="Default test" duration-ms="25641" started-at="2015-10-08T15:09:19Z" finished-at="2015-10-08T15:09:45Z">
+      <class name="com.portal.Simulador">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.portal.Simulador@17c68925]" name="setUp" is-config="true" duration-ms="4983" started-at="2015-10-08T10:09:19Z" finished-at="2015-10-08T10:09:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="tiposCampoAfiliado()[pri:0, instance:com.negativos.tiposcampo.TCTiposCamposAfiliado@17c68925]" name="tiposCampoAfiliado" duration-ms="37264" started-at="2015-10-06T11:01:18Z" finished-at="2015-10-06T11:01:55Z">
-          <exception class="org.openqa.selenium.NoSuchElementException">
+        <test-method status="FAIL" signature="testSimulacion1()[pri:0, instance:com.portal.Simulador@17c68925]" name="testSimulacion1" duration-ms="20037" started-at="2015-10-08T10:09:24Z" finished-at="2015-10-08T10:09:44Z">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Unable to locate element: {"method":"id","selector":"habeasData"}
-Command duration or timeout: 30.64 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
-System info: host: 'Testing', ip: '10.12.2.46', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 4a5f852e-3794-49ac-920e-05750bf9e623
-*** Element info: {Using=id, value=habeasData}]]>
+              <![CDATA[expected:<$100.000+> but was:<>]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"habeasData"}
-Command duration or timeout: 30.64 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
-System info: host: 'Testing', ip: '10.12.2.46', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 4a5f852e-3794-49ac-920e-05750bf9e623
-*** Element info: {Using=id, value=habeasData}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:389)
-	at org.openqa.selenium.By$ById.findElement(By.java:215)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
-	at com.negativos.tiposcampo.TCTiposCamposAfiliado.tiposCampoAfiliado(TCTiposCamposAfiliado.java:46)
+              <![CDATA[java.lang.AssertionError: expected:<$100.000+> but was:<>
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:101)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:108)
+	at com.portal.Simulador.testSimulacion1(Simulador.java:49)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -70,24 +45,17 @@ Session ID: 4a5f852e-3794-49ac-920e-05750bf9e623
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"habeasData"}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
-System info: host: 'Testing', ip: '10.12.2.46', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
-Driver info: driver.version: unknown
-	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous6418193068252411090webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10667)
-	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous6418193068252411090webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:623)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tiposCampoAfiliado -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.negativos.tiposcampo.TCTiposCamposAfiliado@17c68925]" name="tearDown" is-config="true" duration-ms="494" started-at="2015-10-06T11:01:55Z" finished-at="2015-10-06T11:01:56Z">
+        </test-method> <!-- testSimulacion1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.portal.Simulador@17c68925]" name="tearDown" is-config="true" duration-ms="591" started-at="2015-10-08T10:09:44Z" finished-at="2015-10-08T10:09:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.negativos.tiposcampo.TCTiposCamposAfiliado -->
+      </class> <!-- com.portal.Simulador -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

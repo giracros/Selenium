@@ -25,48 +25,31 @@ public class TCPromotor {
 	}
 
 	@Test
-	public void testPatrocinioOk() throws Exception {
-		driver.get(baseUrl
-				+ "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=GyIJfJBgvS0SnDoKEY1jtHSYTGpXpn4SZZSbg6J7zj_gvW0cSSb1iWa1N_CzIfYMtcmgTnMAjNUKEBuGx8v0JqwnXl4WQdMqfmI7q8JztZ7HwzrKA_Cb_2SGt6yed4QgFNXc-BTp14VrtV_nAe3jTw2");
-		assertEquals("Protección - Login", driver.getTitle());
-		driver.findElement(By.name("Clave")).clear();
-		driver.findElement(By.name("Clave")).sendKeys("Proteccion2015");
-		driver.findElement(By.name("Clave")).clear();
-		driver.findElement(By.name("Clave")).sendKeys("Proteccion2015");
-		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
-		driver.findElement(By.name("IdNovell")).clear();
-		driver.findElement(By.name("IdNovell")).sendKeys("lpuerta");
-		driver.findElement(By.name("send")).click();
-		assertEquals("", driver.getTitle());
+	public void tcPromotor() throws Exception {
+		
+		loginPortal();
 		driver.findElement(By.cssSelector("a[title=\"Patrocinio de empleados\"] > span")).click();
-		assertEquals("", driver.getTitle());
+		Thread.sleep(3000);
 		driver.findElement(By.id("nit")).clear();
 		driver.findElement(By.id("nit")).sendKeys("811035741");
 		driver.findElement(By.id("tipoPatrocinio")).click();
+		Thread.sleep(3000);
 		new Select(driver.findElement(By.id("tipoPatrocinio"))).selectByVisibleText("Apoyo para motivar el ahorro");
 		driver.findElement(By.xpath("//option[@value='APOYOMOTIVARAHORRO']")).click();
 		driver.findElement(By.id("observaciones")).clear();
 		driver.findElement(By.id("observaciones")).sendKeys("Apoyo Zenu");
-		driver.findElement(By.id("observaciones")).clear();
-		driver.findElement(By.id("observaciones")).sendKeys("Apoyo Zenu");
 		driver.findElement(By.name("enviar")).click();
-		driver.findElement(By.name("enviar")).click();
+		Thread.sleep(3000);
 		assertEquals("El registro de patrocinio fue almacenado exitosamente.",
 				driver.findElement(By.cssSelector("div.result-susc > span")).getText());
 		driver.findElement(By.linkText("Cerrar")).click();
-		driver.findElement(By.linkText("Cerrar")).click();
+		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("span")).click();
-		driver.findElement(By.cssSelector("span")).click();
-		assertEquals("", driver.getTitle());
-		assertEquals("", driver.getTitle());
 		driver.findElement(By.cssSelector("a[title=\"Patrocinio de empleados\"] > span")).click();
-		driver.findElement(By.cssSelector("a[title=\"Patrocinio de empleados\"] > span")).click();
-		assertEquals("", driver.getTitle());
-		assertEquals("", driver.getTitle());
+		Thread.sleep(3000);
 		driver.findElement(By.id("nit")).clear();
 		driver.findElement(By.id("nit")).sendKeys("811035741");
-		driver.findElement(By.id("nit")).clear();
-		driver.findElement(By.id("nit")).sendKeys("811035741");
+		Thread.sleep(3000);
 		try {
 			assertEquals("Apoyo Zenu", driver.findElement(By.id("observaciones")).getAttribute("value"));
 		} catch (Error e) {
@@ -90,16 +73,26 @@ public class TCPromotor {
 			verificationErrors.append(e.toString());
 		}
 		driver.findElement(By.cssSelector("span")).click();
-		driver.findElement(By.cssSelector("span")).click();
-		assertEquals("", driver.getTitle());
-		assertEquals("", driver.getTitle());
+		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("a[title=\"Salida Segura\"] > span")).click();
-		assertEquals("Cerrando aplicacion...", driver.getTitle());
-		assertEquals("Protección - Login", driver.getTitle());
-		driver.findElement(By.name("Clave")).clear();
-		driver.findElement(By.name("Clave")).sendKeys("Proteccion2015");
+		Thread.sleep(3000);
 	}
 
+	
+	private void loginPortal() {
+		By idNovell = By.name("IdNovell");
+		By name = By.name("Clave");
+		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
+		driver.get(baseUrl + url);
+		assertEquals("Protección - Login", driver.getTitle());
+		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
+		driver.findElement(idNovell).clear();
+		driver.findElement(idNovell).sendKeys("lpuerta");
+		driver.findElement(name).sendKeys("Proteccion2015");
+		driver.findElement(By.name("send")).click();
+
+	}
+	
 	@AfterTest
 	public void tearDown() throws Exception {
 		driver.quit();

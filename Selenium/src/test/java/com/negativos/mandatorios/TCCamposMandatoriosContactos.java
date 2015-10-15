@@ -37,11 +37,13 @@ public class TCCamposMandatoriosContactos {
 	public void camposMandatoriosContactos() throws Exception {
 
 		loginPortal();
+		Thread.sleep(3000);
 		assertEquals("", driver.getTitle());
 		String campoRequerido = "Campo requerido";
 		driver.findElement(contactoLink).click();
 		assertEquals("", driver.getTitle());
 		driver.findElement(click).click();
+		Thread.sleep(3000);
 		assertEquals(campoRequerido, driver.findElement(nit).getText());
 		assertEquals(campoRequerido, driver.findElement(razonSocial).getText());
 		assertEquals(campoRequerido, driver.findElement(nombreCompleto).getText());
@@ -49,7 +51,9 @@ public class TCCamposMandatoriosContactos {
 		assertEquals(campoRequerido, driver.findElement(cargo).getText());
 		assertEquals(campoRequerido, driver.findElement(telefono).getText());
 		assertEquals(campoRequerido, driver.findElement(aporteAhorro).getText());
+		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("span")).click();
+		
 		assertEquals("", driver.getTitle());
 	}
 

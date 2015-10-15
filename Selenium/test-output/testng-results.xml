@@ -2,25 +2,44 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25641" started-at="2015-10-08T15:09:19Z" finished-at="2015-10-08T15:09:45Z">
+  <suite name="Default suite" duration-ms="49293" started-at="2015-10-08T20:23:20Z" finished-at="2015-10-08T20:24:10Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25641" started-at="2015-10-08T15:09:19Z" finished-at="2015-10-08T15:09:45Z">
-      <class name="com.portal.Simulador">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.portal.Simulador@17c68925]" name="setUp" is-config="true" duration-ms="4983" started-at="2015-10-08T10:09:19Z" finished-at="2015-10-08T10:09:24Z">
+    <test name="Default test" duration-ms="49293" started-at="2015-10-08T20:23:20Z" finished-at="2015-10-08T20:24:10Z">
+      <class name="com.positivos.TCAfiliadoExistente">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.positivos.TCAfiliadoExistente@17c68925]" name="setUp" is-config="true" duration-ms="4977" started-at="2015-10-08T15:23:20Z" finished-at="2015-10-08T15:23:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="testSimulacion1()[pri:0, instance:com.portal.Simulador@17c68925]" name="testSimulacion1" duration-ms="20037" started-at="2015-10-08T10:09:24Z" finished-at="2015-10-08T10:09:44Z">
-          <exception class="java.lang.AssertionError">
+        <test-method status="FAIL" signature="tcAfiliadoExistente()[pri:0, instance:com.positivos.TCAfiliadoExistente@17c68925]" name="tcAfiliadoExistente" duration-ms="43867" started-at="2015-10-08T15:23:25Z" finished-at="2015-10-08T15:24:09Z">
+          <exception class="org.openqa.selenium.ElementNotVisibleException">
             <message>
-              <![CDATA[expected:<$100.000+> but was:<>]]>
+              <![CDATA[Element is not currently visible and so may not be interacted with
+Command duration or timeout: 30.07 seconds
+Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
+System info: host: 'Testing', ip: '10.12.2.5', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 1eca2b9a-dfe7-4252-8f72-4bf4703cf93e]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected:<$100.000+> but was:<>
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:101)
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:108)
-	at com.portal.Simulador.testSimulacion1(Simulador.java:49)
+              <![CDATA[org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Command duration or timeout: 30.07 seconds
+Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
+System info: host: 'Testing', ip: '10.12.2.5', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 1eca2b9a-dfe7-4252-8f72-4bf4703cf93e
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:273)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at com.positivos.TCAfiliadoExistente.tcAfiliadoExistente(TCAfiliadoExistente.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -45,17 +64,25 @@
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
+Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
+System info: host: 'Testing', ip: '10.12.2.5', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
+Driver info: driver.version: unknown
+	at <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:9982)
+	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12626)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12643)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:623)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.ElementNotVisibleException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testSimulacion1 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.portal.Simulador@17c68925]" name="tearDown" is-config="true" duration-ms="591" started-at="2015-10-08T10:09:44Z" finished-at="2015-10-08T10:09:45Z">
+        </test-method> <!-- tcAfiliadoExistente -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.positivos.TCAfiliadoExistente@17c68925]" name="tearDown" is-config="true" duration-ms="416" started-at="2015-10-08T15:24:09Z" finished-at="2015-10-08T15:24:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.portal.Simulador -->
+      </class> <!-- com.positivos.TCAfiliadoExistente -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

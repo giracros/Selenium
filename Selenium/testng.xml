@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="PromotorNegativos" parallel="tests">
-  <test name="MasProteccion">
+<suite name="SuiteMasProteccion" parallel="tests">
+  <test name="FullTest">
     <classes>
       <class name="com.negativos.mandatorios.TCCamposMandatoriosAfiliado"/>
+      <class name="com.negativos.tiposcampo.TCTiposCamposPromotor"/>
+      <class name="com.portal.Afiliado"/>
+      <class name="com.portal.TCSimuladorMujer"/>
+      <class name="com.portal.Empresa"/>
+      <class name="com.positivos.TCContactos"/>
+      <class name="com.positivos.TCPromotor"/>
+      <class name="com.positivos.TCAfiliadoProceso"/>
+      <class name="com.positivos.TCAfiliadoNuevo"/>
+      <class name="com.positivos.TCAfiliadoExistente"/>
       <class name="com.negativos.mandatorios.TCCamposMandatoriosContactos"/>
       <class name="com.negativos.tiposcampo.TCTiposCamposContactos"/>
-      <class name="com.negativos.tiposcampo.TCTiposCamposPromotor"/>
       <class name="com.negativos.mandatorios.TCCamposMandatoriosPromotor"/>
+      <class name="com.portal.TCSimuladorHombre"/>
+      <class name="com.portal.TCSimulacionPersona"/>
       <class name="com.negativos.tiposcampo.TCTiposCamposAfiliado"/>
     </classes>
-  </test> <!-- MasProteccion -->
-</suite> <!-- PromotorNegativos -->
+  </test> <!-- FullTest -->
+</suite> <!-- SuiteMasProteccion -->

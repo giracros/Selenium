@@ -23,7 +23,7 @@ public class TCAfiliadoProceso {
 	}
 
 	@Test
-	public void testAfiliadoProceso() throws Exception {
+	public void tcAfiliadoProceso() throws Exception {
 		driver.get(baseUrl
 				+ "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=DPNbuTgh7qh0B6XEM3g4vSCs66ObNk1eV5suiW7XNWJ1AfzlWp2bVY9B1WL8XCQUJxz4YIi37pRjNFehYhQ3yVPHD-97CB3Hyy-pw6_O94liUqN3LFB_aWgHAVHeOZw1ua7eqqkQp08xYEBclHi1Aw2");
 		assertEquals("Protección - Login", driver.getTitle());

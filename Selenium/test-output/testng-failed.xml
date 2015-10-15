@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.portal.Simulador">
+      <class name="com.positivos.TCAfiliadoExistente">
         <methods>
+          <include name="tcAfiliadoExistente"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="testSimulacion1"/>
         </methods>
-      </class> <!-- com.portal.Simulador -->
+      </class> <!-- com.positivos.TCAfiliadoExistente -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

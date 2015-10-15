@@ -45,6 +45,7 @@ public class TCCamposMandatoriosPromotor {
 		loginPortal();
 		assertEquals("", driver.getTitle());
 		driver.findElement(paginaPatrocinio).click();
+		Thread.sleep(3000);
 		try {
 			assertEquals(cedulaPromotor, driver.findElement(cedulaPromotorLocator).getAttribute("value"));
 		} catch (Error e) {
@@ -56,6 +57,7 @@ public class TCCamposMandatoriosPromotor {
 			verificationErrors.append(e.toString());
 		}
 		driver.findElement(By.name("enviar")).click();
+		Thread.sleep(3000);
 		assertEquals(campoRequerido, driver.findElement(nit).getText());
 		assertEquals(campoRequerido, driver.findElement(razonSocial).getText());
 		assertEquals(campoRequerido, driver.findElement(tipoPatrocinio).getText());
@@ -65,6 +67,7 @@ public class TCCamposMandatoriosPromotor {
 		assertEquals(campoRequerido, driver.findElement(valorTope).getText());
 		assertEquals(campoRequerido, driver.findElement(cantidadEmpleado).getText());
 		driver.findElement(By.cssSelector("span")).click();
+		Thread.sleep(3000);
 		assertEquals("", driver.getTitle());
 	}
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [PromotorNegativos]" parallel="tests">
+  <test name="MasProteccion(failed)" parallel="tests">
+    <classes>
+      <class name="com.negativos.mandatorios.TCCamposMandatoriosPromotor">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- com.negativos.mandatorios.TCCamposMandatoriosPromotor -->
+      <class name="com.negativos.mandatorios.TCCamposMandatoriosContactos">
+        <methods>
+          <include name="setUp"/>
+          <include name="cerrarExplorador"/>
+        </methods>
+      </class> <!-- com.negativos.mandatorios.TCCamposMandatoriosContactos -->
+      <class name="com.negativos.tiposcampo.TCTiposCamposContactos">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.negativos.tiposcampo.TCTiposCamposContactos -->
+      <class name="com.negativos.tiposcampo.TCTiposCamposAfiliado">
+        <methods>
+          <include name="setUp"/>
+          <include name="testPantalla1"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.negativos.tiposcampo.TCTiposCamposAfiliado -->
+      <class name="com.negativos.tiposcampo.TCTiposCamposPromotor">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.negativos.tiposcampo.TCTiposCamposPromotor -->
+      <class name="com.negativos.mandatorios.TCCamposMandatoriosAfiliado">
+        <methods>
+          <include name="afterTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.negativos.mandatorios.TCCamposMandatoriosAfiliado -->
+    </classes>
+  </test> <!-- MasProteccion(failed) -->
+</suite> <!-- Failed suite [PromotorNegativos] -->

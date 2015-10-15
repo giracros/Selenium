@@ -6,9 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,7 +15,6 @@ public class TCTiposCamposAfiliado {
 
 	private WebDriver driver;
 	private String baseUrl;
-	private StringBuffer verificationErrors = new StringBuffer();
 
 	@BeforeTest
 	public void setUp() throws Exception {
@@ -34,20 +31,19 @@ public class TCTiposCamposAfiliado {
 	public void tiposCampoAfiliado() throws Exception {
 
 		loginPortal();
-
+		Thread.sleep(3000);
 		driver.findElement(By.name("numIdentificacion")).clear();
 
 		driver.findElement(By.name("numIdentificacion")).sendKeys("203928382");
 
 		driver.findElement(By.name("enviar")).click();
-
-		WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("fechaDebito")));
-		driver.findElement(By.id("fechaDebito")).sendKeys("22131232");
 		
+		Thread.sleep(3000);
 		
-		assertEquals("", driver.getTitle());
-		driver.findElement(By.cssSelector("input.center")).click();
+		//assertEquals("", driver.getTitle());
+		//driver.findElement(By.cssSelector("input.center")).click();
+		
+		Thread.sleep(5000);
 
 		driver.findElement(By.id("habeasData")).click();
 		driver.findElement(By.id("controlActivos")).click();
@@ -101,7 +97,11 @@ public class TCTiposCamposAfiliado {
 		driver.findElement(By.id("segundoNombre")).clear();
 		driver.findElement(By.id("segundoNombre")).sendKeys("1");
 
-		assertEquals("Campo alfabético", driver.findElement(By.id("primerApellido-error")).getText());
+	
+
+		driver.findElement(By.cssSelector("span")).click();
+		
+			assertEquals("Campo alfabético", driver.findElement(By.id("primerApellido-error")).getText());
 		assertEquals("Campo alfabético", driver.findElement(By.id("segundoApellido-error")).getText());
 		assertEquals("Campo alfabético", driver.findElement(By.id("primerNombre-error")).getText());
 		assertEquals("Campo alfabético", driver.findElement(By.id("segundoNombre-error")).getText());
@@ -116,11 +116,12 @@ public class TCTiposCamposAfiliado {
 		assertEquals("Valor inválido, máximo 15 caracteres", driver.findElement(By.id("valorAporte-error")).getText());
 		assertEquals("Campo numérico", driver.findElement(By.id("numeroCuenta-error")).getText());
 		assertEquals("Fecha inválida", driver.findElement(By.id("fechaNacimiento-error")).getText());
-
+		
+		
 		assertTrue(driver.findElement(By.cssSelector("div.display-error._visible > label")).getText()
 				.matches("^exact:Los campos marcados en [\\s\\S]* son obligatorios\\.$"));
 
-		driver.findElement(By.cssSelector("span")).click();
+		Thread.sleep(3000);
 
 	}
 

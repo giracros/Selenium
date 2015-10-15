@@ -25,7 +25,7 @@ public class TCAfiliadoNuevo {
 	}
 
 	@Test
-	public void testAfiliadoNuevo() throws Exception {
+	public void tcAfiliadoNuevo() throws Exception {
 		driver.get(baseUrl
 				+ "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=yRneNz6cOsvwJmNNjp-S2AsHyCkdG4zPiaOI5OVqgdwdPYO11TEWReF3rrSEhIdp0lMcYRLfxgEY5ubljjywoK8_KmO2PnZo8AQw-sMXOZ8DTt2Xcx_Sc7sOC500Vs3qAzLoKduWIR0yZoDpTdsU0Q2");
 		assertEquals("Protección - Login", driver.getTitle());

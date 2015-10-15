@@ -19,7 +19,6 @@ public class TCCamposMandatoriosAfiliado {
 	
 	By idNovell = By.name("IdNovell");
 	By clave = By.name("Clave");
-	
 	By habeas = By.id("habeasData-error");
 	By controlActivos = By.id("controlActivos-error");
 	By condiciones = By.id("condiciones-error");
@@ -40,7 +39,6 @@ public class TCCamposMandatoriosAfiliado {
 	By primerNombre = By.id("primerNombre-error");
 	By fechaNacimiento = By.id("fechaNacimiento-error");
 	By fechaExpedicion = By.id("fechaExpedicion-error");
-	
 	By click = By.cssSelector("span");
 	By enviar = By.cssSelector("input.center");
 	By nameEnviar = By.name("enviar");
@@ -57,14 +55,14 @@ public class TCCamposMandatoriosAfiliado {
 	@Test
 	public void camposMandotoriosAfiliado() throws Exception {
 		loginPortal();
+		Thread.sleep(3000);
 		assertEquals("", driver.getTitle());
 		driver.findElement(numIdentificacion).clear();
 		driver.findElement(numIdentificacion).sendKeys("1029382984");
-		
 		driver.findElement(nameEnviar).click();
-		
+		Thread.sleep(3000);
 		driver.findElement(enviar).click();
-		
+		Thread.sleep(3000);
 		assertEquals(campoRequerido, driver.findElement(habeas).getText());
 		assertEquals(campoRequerido, driver.findElement(controlActivos).getText());
 		assertEquals(campoRequerido, driver.findElement(condiciones).getText());

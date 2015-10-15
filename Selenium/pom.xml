@@ -1,17 +1,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>Pruebas</groupId>
+	
 	<artifactId>Selenium</artifactId>
+	
 	<version>1.0</version>
+	
 	<name>MasProteccion</name>
+	
 	<description>Proteccion Afiliacion +Proteccion</description>
-
+	
 	<properties>
 		<suiteXmlFile>
 			testng.xml
 		</suiteXmlFile>
 	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -36,6 +43,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -84,9 +92,12 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
 	<organization>
 		<name>Tata Consultancy Services</name>
 		<url>http://www.tcs.com/Pages/default.aspx</url>
 	</organization>
+	
 	<url>https://www.proteccion.com/wps/portal/proteccion</url>
+	
 </project>

@@ -2,34 +2,38 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="49293" started-at="2015-10-08T20:23:20Z" finished-at="2015-10-08T20:24:10Z">
+  <suite name="Default suite" duration-ms="54306" started-at="2015-10-22T15:29:01Z" finished-at="2015-10-22T15:29:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="49293" started-at="2015-10-08T20:23:20Z" finished-at="2015-10-08T20:24:10Z">
-      <class name="com.positivos.TCAfiliadoExistente">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.positivos.TCAfiliadoExistente@17c68925]" name="setUp" is-config="true" duration-ms="4977" started-at="2015-10-08T15:23:20Z" finished-at="2015-10-08T15:23:25Z">
+    <test name="Default test" duration-ms="54306" started-at="2015-10-22T15:29:01Z" finished-at="2015-10-22T15:29:55Z">
+      <class name="com.portal.Empresa">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.portal.Empresa@7e0ea639]" name="setUp" is-config="true" duration-ms="5599" started-at="2015-10-22T10:29:01Z" finished-at="2015-10-22T10:29:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="tcAfiliadoExistente()[pri:0, instance:com.positivos.TCAfiliadoExistente@17c68925]" name="tcAfiliadoExistente" duration-ms="43867" started-at="2015-10-08T15:23:25Z" finished-at="2015-10-08T15:24:09Z">
-          <exception class="org.openqa.selenium.ElementNotVisibleException">
+        <test-method status="FAIL" signature="testEmpresa()[pri:0, instance:com.portal.Empresa@7e0ea639]" name="testEmpresa" duration-ms="47951" started-at="2015-10-22T10:29:06Z" finished-at="2015-10-22T10:29:54Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Element is not currently visible and so may not be interacted with
-Command duration or timeout: 30.07 seconds
+              <![CDATA[Unable to locate element: {"method":"link text","selector":"Soy Empresa"}
+Command duration or timeout: 36.10 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
-System info: host: 'Testing', ip: '10.12.2.5', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
+System info: host: 'Selenium', ip: '10.12.2.53', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_65'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 1eca2b9a-dfe7-4252-8f72-4bf4703cf93e]]>
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.2, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 1dee7023-816d-45ec-aba6-dcd448112708
+*** Element info: {Using=link text, value=Soy Empresa}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
-Command duration or timeout: 30.07 seconds
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Soy Empresa"}
+Command duration or timeout: 36.10 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
-System info: host: 'Testing', ip: '10.12.2.5', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
+System info: host: 'Selenium', ip: '10.12.2.53', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_65'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 1eca2b9a-dfe7-4252-8f72-4bf4703cf93e
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=41.0.2, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 1dee7023-816d-45ec-aba6-dcd448112708
+*** Element info: {Using=link text, value=Soy Empresa}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -37,9 +41,11 @@ Session ID: 1eca2b9a-dfe7-4252-8f72-4bf4703cf93e
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:273)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at com.positivos.TCAfiliadoExistente.tcAfiliadoExistente(TCAfiliadoExistente.java:45)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:397)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:243)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
+	at com.portal.Empresa.testEmpresa(Empresa.java:28)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -48,41 +54,40 @@ Session ID: 1eca2b9a-dfe7-4252-8f72-4bf4703cf93e
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:773)
-	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
 	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
-	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1191)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.run(TestNG.java:1024)
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"link text","selector":"Soy Empresa"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.47.2', revision: '4d972c01cab1304452627f837654326a11eb92fe', time: '2015-09-24 09:17:17'
-System info: host: 'Testing', ip: '10.12.2.5', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_60'
+System info: host: 'Selenium', ip: '10.12.2.53', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.8.0_65'
 Driver info: driver.version: unknown
-	at <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:9982)
-	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12626)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12643)
-	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous1041603589362108860webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:623)
+	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous8492650049982814109webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10667)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/DANIEL~1/AppData/Local/Temp/anonymous8492650049982814109webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:623)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementNotVisibleException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tcAfiliadoExistente -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.positivos.TCAfiliadoExistente@17c68925]" name="tearDown" is-config="true" duration-ms="416" started-at="2015-10-08T15:24:09Z" finished-at="2015-10-08T15:24:10Z">
+        </test-method> <!-- testEmpresa -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.portal.Empresa@7e0ea639]" name="tearDown" is-config="true" duration-ms="726" started-at="2015-10-22T10:29:54Z" finished-at="2015-10-22T10:29:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.positivos.TCAfiliadoExistente -->
+      </class> <!-- com.portal.Empresa -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

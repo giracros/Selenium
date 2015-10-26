@@ -27,6 +27,7 @@ public class TCAfiliadoExistente {
 	public void tcAfiliadoExistente() throws Exception {
 		
 		loginPortal();
+		
 		Thread.sleep(3000);
 		driver.findElement(By.name("numIdentificacion")).clear();
 		driver.findElement(By.name("numIdentificacion")).sendKeys("71746592");

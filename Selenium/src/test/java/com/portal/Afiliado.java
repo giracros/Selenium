@@ -26,43 +26,65 @@ public class Afiliado {
 
 		driver.get(baseUrl + "/wps/portal/proteccion/masproteccion/home");
 		assertEquals("Home", driver.getTitle());
-		
+
 		driver.findElement(By.linkText("Soy Persona")).click();
+
 		assertEquals("Afiliado", driver.getTitle());
-		assertEquals("Porque sólo un poco hoy, puede hacer una gran diferencia mañana.",driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div/div/section/div[2]/div[2]/div[1]/div/div[1]/div/div/div[1]/div/div/div/div/p[2]/span")).getText());
-		
+
+		assertEquals("Porque sólo un poco hoy, puede hacer una gran diferencia mañana.",
+				driver.findElement(By
+						.xpath("/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div/div/section/div[2]/div[2]/div[1]/div/div[1]/div/div/div[1]/div/div/div/div/p[2]/span"))
+				.getText());
+
 		driver.findElement(By.linkText("Quiero conocer +")).click();
-		
+
 		driver.findElement(By.linkText("¿Para qué sirve + Protección?")).click();
-		assertEquals("Para construir y recibir más ingreso en tu etapa de jubilación.",driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
-		
+
+		assertEquals("Para construir y recibir más ingreso en tu etapa de jubilación.",
+				driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
+
 		driver.findElement(By.linkText("¿Cómo hacerlo?")).click();
-		assertEquals("Es muy fácil, vincúlate al producto en pocos pasos y autoriza el débito automático mensual a tu cuenta de ahorros. No tienes que ser cliente actual de Protección para hacerlo. Recuerda que siempre puedes dar más, por eso en cualquier momento puedes hacer aportes extraordinarios.",
-		driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
-		
+
+		assertEquals(
+				"Es muy fácil, vincúlate al producto en pocos pasos y autoriza el débito automático mensual a tu cuenta de ahorros. No tienes que ser cliente actual de Protección para hacerlo. Recuerda que siempre puedes dar más, por eso en cualquier momento puedes hacer aportes extraordinarios.",
+
+				driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
+
 		driver.findElement(By.linkText("¿Cuánto debo ahorrar?")).click();
-		assertEquals("Puedes ahorrar desde $25.000 mensuales que se incrementaran cada año en IPC+3%. Te sugerimos tu ahorro ideal, según tu edad, salario y género.",
-		driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
-		
+		assertEquals(
+				"Puedes ahorrar desde $25.000 mensuales que se incrementaran cada año en IPC+3%. Te sugerimos tu ahorro ideal, según tu edad, salario y género.",
+				driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
+
 		driver.findElement(By.linkText("¿Durante cuánto tiempo debo ahorrar?")).click();
-		assertEquals("Puedes ahorrar el tiempo que quieras. Para alcanzar el ingreso adicional, te sugerimos hacerlo desde este mismo momento y hasta que cumplas 62 años, si eres hombre y 57 años si eres mujer.",
-		driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
-		
+		assertEquals(
+				"Puedes ahorrar el tiempo que quieras. Para alcanzar el ingreso adicional, te sugerimos hacerlo desde este mismo momento y hasta que cumplas 62 años, si eres hombre y 57 años si eres mujer.",
+				driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
+
 		driver.findElement(By.linkText("¿Qué es el beneficio +Protección?")).click();
-		assertTrue(driver.findElement(By.id("preguntas-dudas-respuesta")).getText().matches("^exact:Proteccion quiere aportar a esa construcción de tu futuro, por eso quiere motivarte a que seas constante y no realices ningún retiro durante la etapa de ahorro\\. Como incentivo a tu buen comportamiento Proteccion devolverá hasta el 60% de la comisión cobrada asi: Cada año obtendrás un beneficio anual con una devolución del 40% esta y cada 5 años un beneficio extra con una devolución del 20% de la comisión cobrada durante este tiempo\\. Con esto obtendrás aumentar tu ahorro, obtener un mayor ingreso en el futuro para mantener tu calidad de vida\\. [\\s\\S]*La comisión cobrada por Protección será del 2\\.5% anual liquidado diariamente sobre el saldo acumulado en tu cuenta\\.$"));
+		assertTrue(driver.findElement(By.id("preguntas-dudas-respuesta")).getText().matches(
+				"^exact:Proteccion quiere aportar a esa construcción de tu futuro, por eso quiere motivarte a que seas constante y no realices ningún retiro durante la etapa de ahorro\\. Como incentivo a tu buen comportamiento Proteccion devolverá hasta el 60% de la comisión cobrada asi: Cada año obtendrás un beneficio anual con una devolución del 40% esta y cada 5 años un beneficio extra con una devolución del 20% de la comisión cobrada durante este tiempo\\. Con esto obtendrás aumentar tu ahorro, obtener un mayor ingreso en el futuro para mantener tu calidad de vida\\. [\\s\\S]*La comisión cobrada por Protección será del 2\\.5% anual liquidado diariamente sobre el saldo acumulado en tu cuenta\\.$"));
 		driver.findElement(By.linkText("¿Cómo disfruto mi ahorro?")).click();
-		assertEquals("Lo puedes disfrutar como un pago mensual, una suma única a partir de los 62 años si eres hombre o 57 años si eres mujer, complementando así tu mesada pensional hasta los 85 años.",driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
+		assertEquals(
+				"Lo puedes disfrutar como un pago mensual, una suma única a partir de los 62 años si eres hombre o 57 años si eres mujer, complementando así tu mesada pensional hasta los 85 años.",
+				driver.findElement(By.id("preguntas-dudas-respuesta")).getText());
 		driver.findElement(By.linkText("Volver")).click();
 		driver.findElement(By.linkText("+ Para ti")).click();
 		assertEquals("Afiliado", driver.getTitle());
-		assertEquals("Eso es +Protección, es ese poco + que les da tranquilidad a sus vidas y que les permitirá vivir un mejor mañana, es ese + que les cambia el hoy y les da felicidad, es ese + que desde el presente les ayuda a transformar su futuro.",driver.findElement(By.xpath("//div[@id='slide3']/div/div/div/div/div/div/div/p[2]")).getText());
+		assertEquals(
+				"Eso es +Protección, es ese poco + que les da tranquilidad a sus vidas y que les permitirá vivir un mejor mañana, es ese + que les cambia el hoy y les da felicidad, es ese + que desde el presente les ayuda a transformar su futuro.",
+				driver.findElement(By.xpath("//div[@id='slide3']/div/div/div/div/div/div/div/p[2]")).getText());
 		driver.findElement(By.xpath("(//a[contains(text(),'Quiero conocer +')])[2]")).click();
-		assertEquals("Siempre que puedas ahorra +", driver.findElement(By.xpath("//div[@id='slide4']/div/div/div/div/div/div/div/div/div/div/h3")).getText());
+		assertEquals("Siempre que puedas ahorra +", driver
+				.findElement(By.xpath("//div[@id='slide4']/div/div/div/div/div/div/div/div/div/div/h3")).getText());
 		driver.findElement(By.cssSelector("div.text > a.more.back-slide")).click();
 		driver.findElement(By.linkText("+ Ayuda")).click();
 		driver.findElement(By.linkText("¿Este producto es de Pensión voluntaria?")).click();
-		assertEquals("Si.  +Proteccion hace parte del fondo de Pensiones Voluntarias, lo que implica los mismos beneficios que obtienes hoy en este producto más los beneficios adicionales de +Protección.",driver.findElement(By.xpath("//div[@id='collapse1']/div/p[2]")).getText());
-		driver.findElement(By.linkText("¿Debo estar afiliado en algún producto de Protección para afiliarme a + Protección?")).click();
+		assertEquals(
+				"Si.  +Proteccion hace parte del fondo de Pensiones Voluntarias, lo que implica los mismos beneficios que obtienes hoy en este producto más los beneficios adicionales de +Protección.",
+				driver.findElement(By.xpath("//div[@id='collapse1']/div/p[2]")).getText());
+		driver.findElement(
+				By.linkText("¿Debo estar afiliado en algún producto de Protección para afiliarme a + Protección?"))
+				.click();
 		assertEquals("No.  No tienes que ser cliente actual para protección para vincularte a +Protección",
 				driver.findElement(By.xpath("//div[@id='collapse2']/div/p[2]")).getText());
 		driver.findElement(By.linkText("¿Cómo puedo ahorrar en +Protección?")).click();

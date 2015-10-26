@@ -1,9 +1,12 @@
 package com.positivos;
 
 import static org.testng.AssertJUnit.assertEquals;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
@@ -11,10 +14,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class TCAfiliadoProceso {
+
 	private WebDriver driver;
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
-
+	
 	@BeforeTest
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -22,49 +26,64 @@ public class TCAfiliadoProceso {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@Test
-	public void tcAfiliadoProceso() throws Exception {
-		driver.get(baseUrl
-				+ "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=DPNbuTgh7qh0B6XEM3g4vSCs66ObNk1eV5suiW7XNWJ1AfzlWp2bVY9B1WL8XCQUJxz4YIi37pRjNFehYhQ3yVPHD-97CB3Hyy-pw6_O94liUqN3LFB_aWgHAVHeOZw1ua7eqqkQp08xYEBclHi1Aw2");
-		assertEquals("Protección - Login", driver.getTitle());
-		driver.findElement(By.name("Clave")).clear();
-		driver.findElement(By.name("Clave")).sendKeys("Proteccion2015");
-		driver.findElement(By.name("Clave")).clear();
-		driver.findElement(By.name("Clave")).sendKeys("Proteccion2015");
-		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
-		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
-		driver.findElement(By.name("IdNovell")).clear();
-		driver.findElement(By.name("IdNovell")).sendKeys("lpuerta");
-		driver.findElement(By.name("IdNovell")).clear();
-		driver.findElement(By.name("IdNovell")).sendKeys("lpuerta");
-		driver.findElement(By.name("send")).click();
-		driver.findElement(By.name("send")).click();
-		assertEquals("", driver.getTitle());
-		assertEquals("", driver.getTitle());
-		driver.findElement(By.name("numIdentificacion")).clear();
-		driver.findElement(By.name("numIdentificacion")).sendKeys("42893634");
-		driver.findElement(By.name("numIdentificacion")).clear();
-		driver.findElement(By.name("numIdentificacion")).sendKeys("42893634");
-		driver.findElement(By.name("enviar")).click();
+	@Test  (priority = 0)
+	public void tcAfiliadoEnProceso() throws Exception {
+		loginPortal();
+		WebElement numIdentificacion = driver.findElement(By.name("numIdentificacion"));
+		numIdentificacion.clear();
+		numIdentificacion.sendKeys("42893634");
+		WebElement btnEnviar = driver.findElement(By.name("enviar"));
+		btnEnviar.click();
+		WebElement msjNotificacion = driver.findElement(By.cssSelector("td.conTextError"));
+		String msjNotificacionText = "Mensaje: Afiliado tiene otra solicitud en proceso";
 		try {
-			assertEquals("Mensaje: Afiliado tiene otra solicitud en proceso",
-					driver.findElement(By.cssSelector("td.conTextError")).getText());
+			assertEquals(msjNotificacionText, msjNotificacion.getText());
 		} catch (Error e) {
 			verificationErrors.append(e.toString());
 		}
-		assertEquals("Mensaje: Afiliado tiene otra solicitud en proceso",
-				driver.findElement(By.cssSelector("td.conTextError")).getText());
-		driver.findElement(By.linkText("Cerrar")).click();
-		driver.findElement(By.linkText("Cerrar")).click();
-		driver.findElement(By.cssSelector("span")).click();
-		driver.findElement(By.cssSelector("span")).click();
-		assertEquals("", driver.getTitle());
-		assertEquals("", driver.getTitle());
+		WebElement btnCerrarNotificacion = driver.findElement(By.linkText("Cerrar"));
+		btnCerrarNotificacion.click();
+		WebElement btnCerrar = driver.findElement(By.cssSelector("span"));
+		btnCerrar.click();
+	}
+	
+	@Test (priority = 1)
+	public void tcAfiliadoConProducto() throws Exception {
+		loginPortal();
+		WebElement numIdentificacion = driver.findElement(By.name("numIdentificacion"));
+		numIdentificacion.clear();
+		numIdentificacion.sendKeys("1018436098");
+		WebElement btnEnviar = driver.findElement(By.name("enviar"));
+		btnEnviar.click();
+		WebElement msjNotificacion1 = driver.findElement(By.cssSelector("td.conTextError"));
+		String msjNotificacionText = "Mensaje:	NEGOCIO: Afiliado tiene solicitud de vinculación en estado finalizado para el mismo producto";
+		try {
+			assertEquals(msjNotificacionText, msjNotificacion1.getText());
+		} catch (Error e) {
+			verificationErrors.append(e.toString());
+		}
+		WebElement btnCerrarNotificacion = driver.findElement(By.linkText("Cerrar"));
+		btnCerrarNotificacion.click();
+		WebElement btnCerrar = driver.findElement(By.cssSelector("span"));
+		btnCerrar.click();
+	}
+
+	private void loginPortal() {
+		By idNovell = By.name("IdNovell");
+		By name = By.name("Clave");
+		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
+		driver.get(baseUrl + url);
+		assertEquals("Protección - Login", driver.getTitle());
+		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
+		driver.findElement(idNovell).clear();
+		driver.findElement(idNovell).sendKeys("lpuerta");
+		driver.findElement(name).sendKeys("Proteccion2015");
+		driver.findElement(By.name("send")).click();
 	}
 
 	@AfterTest
 	public void tearDown() throws Exception {
 		driver.quit();
-
+		System.exit(0);
 	}
 }

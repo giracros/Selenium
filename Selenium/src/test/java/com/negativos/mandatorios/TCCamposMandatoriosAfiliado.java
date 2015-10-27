@@ -7,15 +7,17 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.complemento.Login;
 
 public class TCCamposMandatoriosAfiliado {
 
 	private WebDriver driver;
 	private String baseUrl;
+	private Login login = new Login();
 	
 	By idNovell = By.name("IdNovell");
 	By clave = By.name("Clave");
@@ -54,7 +56,8 @@ public class TCCamposMandatoriosAfiliado {
 
 	@Test
 	public void camposMandotoriosAfiliado() throws Exception {
-		loginPortal();
+		
+		login.loginPortal();
 		Thread.sleep(3000);
 		assertEquals("", driver.getTitle());
 		driver.findElement(numIdentificacion).clear();
@@ -84,21 +87,7 @@ public class TCCamposMandatoriosAfiliado {
 		assertEquals(campoRequerido, driver.findElement(fechaNacimiento).getText());
 		assertEquals(campoRequerido, driver.findElement(fechaExpedicion).getText());
 		driver.findElement(click).click();
-	}
 
-	public void loginPortal() {
-		
-		By idNovell = By.name("IdNovell");
-		By name = By.name("Clave");
-		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
-		driver.get(baseUrl + url);
-		assertEquals("Protección - Login", driver.getTitle());
-		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
-		driver.findElement(idNovell).clear();
-		driver.findElement(idNovell).sendKeys("lpuerta");
-		driver.findElement(name).sendKeys("Proteccion2015");
-		driver.findElement(By.name("send")).click();
-		
 	}
 
 	@AfterTest

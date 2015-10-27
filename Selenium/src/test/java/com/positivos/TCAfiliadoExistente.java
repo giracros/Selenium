@@ -1,13 +1,12 @@
 package com.positivos;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -25,9 +24,9 @@ public class TCAfiliadoExistente {
 
 	@Test
 	public void tcAfiliadoExistente() throws Exception {
-		
+
 		loginPortal();
-		
+
 		Thread.sleep(3000);
 		driver.findElement(By.name("numIdentificacion")).clear();
 		driver.findElement(By.name("numIdentificacion")).sendKeys("71746592");
@@ -37,8 +36,9 @@ public class TCAfiliadoExistente {
 		driver.findElement(By.id("celular")).sendKeys("3291029301");
 		driver.findElement(By.id("valorAporte")).clear();
 		driver.findElement(By.id("valorAporte")).sendKeys("450000");
-		
+
 		new Select(driver.findElement(By.id("entidadFinanciera"))).selectByVisibleText("BANCOLOMBIA");
+		
 		driver.findElement(By.id("numeroCuenta")).clear();
 		driver.findElement(By.id("numeroCuenta")).sendKeys("19823749283");
 		driver.findElement(By.id("ingresos")).clear();
@@ -58,13 +58,14 @@ public class TCAfiliadoExistente {
 		Thread.sleep(3000);
 		new Select(driver.findElement(By.id("departamentoResidencia"))).selectByVisibleText("ANTIOQUIA");
 		new Select(driver.findElement(By.id("ciudadResidencia"))).selectByVisibleText("MEDELLÍN");
-		
 		driver.findElement(By.cssSelector("input.center")).click();
 		Thread.sleep(3000);
-		assertEquals("La solicitud de vinculación fue registrada exitosamente en AFPCore con el código 510225 , felicitaciones por tu nuevo producto.",
 		
-		driver.findElement(By.cssSelector("div.result-susc > span")).getText());
-		
+		AssertJUnit.assertEquals(
+				"La solicitud de vinculación fue registrada exitosamente en AFPCore con el código 510225 , felicitaciones por tu nuevo producto.",
+
+				driver.findElement(By.cssSelector("div.result-susc > span")).getText());
+
 		driver.findElement(By.linkText("Cerrar")).click();
 		Thread.sleep(3000);
 	}
@@ -74,7 +75,7 @@ public class TCAfiliadoExistente {
 		By name = By.name("Clave");
 		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
 		driver.get(baseUrl + url);
-		assertEquals("Protección - Login", driver.getTitle());
+		AssertJUnit.assertEquals("Protección - Login", driver.getTitle());
 		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
 		driver.findElement(idNovell).clear();
 		driver.findElement(idNovell).sendKeys("lpuerta");
@@ -83,8 +84,11 @@ public class TCAfiliadoExistente {
 	}
 
 	@AfterTest
-	public void tearDown() throws Exception {
+	public void despuesTest() throws Exception {
+		
 		driver.quit();
+		System.exit(0);
+		
 	}
 
 }

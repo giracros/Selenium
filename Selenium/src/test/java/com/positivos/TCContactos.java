@@ -1,14 +1,16 @@
 package com.positivos;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -17,6 +19,7 @@ public class TCContactos {
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
 
+	@BeforeMethod
 	@BeforeTest
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -26,9 +29,9 @@ public class TCContactos {
 
 	@Test
 	public void tcContactos() throws Exception {
-		
+
 		loginPortal();
-		
+
 		driver.findElement(By.cssSelector("a[title=\"Contacto\"] > span")).click();
 		driver.findElement(By.id("nit")).clear();
 		driver.findElement(By.id("nit")).sendKeys("811035741");
@@ -46,45 +49,43 @@ public class TCContactos {
 		driver.findElement(By.id("aporteAhorroEmpleado")).sendKeys("5");
 		driver.findElement(By.id("observaciones")).clear();
 		driver.findElement(By.id("observaciones")).sendKeys("Muchas Gracias espero proximos contactos");
-		
+
 		try {
-			assertEquals("INDUSTRIA DE ALIMENTOS ZENU S.A.S",
+			AssertJUnit.assertEquals("INDUSTRIA DE ALIMENTOS ZENU S.A.S",
 					driver.findElement(By.id("razonSocial")).getAttribute("value"));
 		} catch (Error e) {
 			verificationErrors.append(e.toString());
 		}
-		
+
 		driver.findElement(By.name("enviar")).click();
-		
-		assertEquals("El registro de contacto fue almacenado exitosamente.",
+
+		Assert.assertEquals("El registro de contacto fue almacenado exitosamente.",
 				driver.findElement(By.cssSelector("div.result-susc > span")).getText());
-		
+
 		driver.findElement(By.linkText("Cerrar")).click();
-		
+
 		driver.findElement(By.cssSelector("span")).click();
 	}
 
-	
-	
 	private void loginPortal() {
-		
+
 		By idNovell = By.name("IdNovell");
 		By name = By.name("Clave");
 		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
 		driver.get(baseUrl + url);
-		assertEquals("Protección - Login", driver.getTitle());
+		AssertJUnit.assertEquals("Protección - Login", driver.getTitle());
 		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
 		driver.findElement(idNovell).clear();
 		driver.findElement(idNovell).sendKeys("lpuerta");
 		driver.findElement(name).sendKeys("Proteccion2015");
 		driver.findElement(By.name("send")).click();
-		
+
 	}
 
+	@AfterMethod
 	@AfterTest
 	public void tearDown() throws Exception {
 		driver.quit();
 	}
-	
-	
+
 }

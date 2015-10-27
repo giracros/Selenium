@@ -1,13 +1,12 @@
 package com.positivos;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,21 +18,22 @@ public class TCAfiliadoNuevo {
 
 	/*
 	 * Los xPath
-	 * */
+	 */
 	By mujer = By.cssSelector("div.campo.border > div.campo.width50 > label");
 	By hombre = By.xpath("//form[@id='vinculacionMasProteccion']/div[2]/div[3]/div/div[2]/label");
 	By habeasData1 = By.xpath("//form[@id='vinculacionMasProteccion']/div[11]/div[3]/label");
 	By habeasData2 = By.xpath("//form[@id='vinculacionMasProteccion']/div[9]/div[2]/label");
 	By habeasData3 = By.cssSelector("div.campo.aceptacion > label");
 	By registrarAfiliado = By.xpath("/html/body/div[1]/div[3]/form/div[13]/input");
-	
+
 	/*
 	 * Los Id`s
 	 * 
-	 * */
+	 */
 	By fechaExpedicion = By.id("fechaExpedicion");
 	By primerApellido = By.id("primerApellido");
-	
+
+
 	@BeforeTest
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -44,22 +44,21 @@ public class TCAfiliadoNuevo {
 	@Test
 	public void tcAfiliadoNuevo() throws Exception {
 
-		
 		loginPortal();
-		
+
 		driver.findElement(By.name("numIdentificacion")).clear();
 		driver.findElement(By.name("numIdentificacion")).sendKeys("1324354657");
 		driver.findElement(By.name("enviar")).click();
-		
+
 		// Timeout que espera 30seg a que cargue el servicio de Departamentos
 		Thread.sleep(30000);
 		new Select(driver.findElement(By.id("departamentoExpedicion"))).selectByVisibleText("ANTIOQUIA");
 		Thread.sleep(10000);
 		new Select(driver.findElement(By.id("ciudadExpedicion"))).selectByVisibleText("ANGOSTURA");
-		
+
 		driver.findElement(fechaExpedicion).clear();
 		driver.findElement(fechaExpedicion).sendKeys("01/01/2005");
-		
+
 		driver.findElement(primerApellido).clear();
 		driver.findElement(primerApellido).sendKeys("DeLasCasas");
 		driver.findElement(By.id("segundoApellido")).clear();
@@ -127,7 +126,7 @@ public class TCAfiliadoNuevo {
 		By name = By.name("Clave");
 		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
 		driver.get(baseUrl + url);
-		assertEquals("Protección - Login", driver.getTitle());
+		AssertJUnit.assertEquals("Protección - Login", driver.getTitle());
 		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
 		driver.findElement(idNovell).clear();
 		driver.findElement(idNovell).sendKeys("lpuerta");
@@ -135,6 +134,7 @@ public class TCAfiliadoNuevo {
 		driver.findElement(By.name("send")).click();
 
 	}
+
 
 	@AfterTest
 	public void tearDown() throws Exception {

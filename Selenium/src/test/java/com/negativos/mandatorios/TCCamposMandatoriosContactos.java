@@ -1,14 +1,14 @@
 package com.negativos.mandatorios;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -26,6 +26,7 @@ public class TCCamposMandatoriosContactos {
 	By contactoLink = By.cssSelector("a[title=\"Contacto\"] > span");
 	By click = By.name("enviar");
 
+	@BeforeMethod
 	@BeforeTest
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -38,23 +39,23 @@ public class TCCamposMandatoriosContactos {
 
 		loginPortal();
 		Thread.sleep(3000);
-		assertEquals("", driver.getTitle());
+		AssertJUnit.assertEquals("", driver.getTitle());
 		String campoRequerido = "Campo requerido";
 		driver.findElement(contactoLink).click();
-		assertEquals("", driver.getTitle());
+		AssertJUnit.assertEquals("", driver.getTitle());
 		driver.findElement(click).click();
 		Thread.sleep(3000);
-		assertEquals(campoRequerido, driver.findElement(nit).getText());
-		assertEquals(campoRequerido, driver.findElement(razonSocial).getText());
-		assertEquals(campoRequerido, driver.findElement(nombreCompleto).getText());
-		assertEquals(campoRequerido, driver.findElement(email).getText());
-		assertEquals(campoRequerido, driver.findElement(cargo).getText());
-		assertEquals(campoRequerido, driver.findElement(telefono).getText());
-		assertEquals(campoRequerido, driver.findElement(aporteAhorro).getText());
+		AssertJUnit.assertEquals(campoRequerido, driver.findElement(nit).getText());
+		AssertJUnit.assertEquals(campoRequerido, driver.findElement(razonSocial).getText());
+		AssertJUnit.assertEquals(campoRequerido, driver.findElement(nombreCompleto).getText());
+		AssertJUnit.assertEquals(campoRequerido, driver.findElement(email).getText());
+		AssertJUnit.assertEquals(campoRequerido, driver.findElement(cargo).getText());
+		AssertJUnit.assertEquals(campoRequerido, driver.findElement(telefono).getText());
+		AssertJUnit.assertEquals(campoRequerido, driver.findElement(aporteAhorro).getText());
 		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("span")).click();
-		
-		assertEquals("", driver.getTitle());
+
+		AssertJUnit.assertEquals("", driver.getTitle());
 	}
 
 	public void loginPortal() {
@@ -63,7 +64,7 @@ public class TCCamposMandatoriosContactos {
 		By name = By.name("Clave");
 		String url = "/AutenticadorWEB/Autenticacion.jsp?cGFyYW1z=RUUgvh5-hG0lTPgl3AxJR9CVi4MmnLXXUgX5JEDKHpI8rPbU6fugBI6cKeYKrPsusqo8B4ngcWYH6rPQeJbLa4qxZmnDywcBAyKUIZH3wDsOPj6AUqoA4bAA9iLzq8eKijCEySGMz9L-Fe_u8ypORQ2";
 		driver.get(baseUrl + url);
-		assertEquals("Protección - Login", driver.getTitle());
+		AssertJUnit.assertEquals("Protección - Login", driver.getTitle());
 		new Select(driver.findElement(By.name("TipoUsuario"))).selectByVisibleText("Empleado Protección");
 		driver.findElement(idNovell).clear();
 		driver.findElement(idNovell).sendKeys("lpuerta");

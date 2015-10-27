@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -26,7 +25,7 @@ public class TCCamposMandatoriosContactos {
 	By contactoLink = By.cssSelector("a[title=\"Contacto\"] > span");
 	By click = By.name("enviar");
 
-	@BeforeMethod
+
 	@BeforeTest
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();

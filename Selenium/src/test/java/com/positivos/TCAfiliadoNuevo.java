@@ -139,7 +139,5 @@ public class TCAfiliadoNuevo {
 	@AfterTest
 	public void tearDown() throws Exception {
 		driver.quit();
-		System.exit(0);
-
 	}
 }

@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -45,7 +44,6 @@ public class TCCamposMandatoriosAfiliado {
 	String campoRequerido = "Campo requerido";
 	By numIdentificacion = By.name("numIdentificacion");
 
-	@BeforeMethod
 	@BeforeTest
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();

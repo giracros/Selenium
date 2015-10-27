@@ -87,7 +87,6 @@ public class TCAfiliadoExistente {
 	public void despuesTest() throws Exception {
 		
 		driver.quit();
-		System.exit(0);
 		
 	}
 

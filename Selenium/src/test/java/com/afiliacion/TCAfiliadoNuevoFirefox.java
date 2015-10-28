@@ -1,4 +1,4 @@
-package com.positivos;
+package com.afiliacion;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +11,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TCAfiliadoNuevo {
+public class TCAfiliadoNuevoFirefox {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -25,6 +25,7 @@ public class TCAfiliadoNuevo {
 	By habeasData2 = By.xpath("//form[@id='vinculacionMasProteccion']/div[9]/div[2]/label");
 	By habeasData3 = By.cssSelector("div.campo.aceptacion > label");
 	By registrarAfiliado = By.xpath("/html/body/div[1]/div[3]/form/div[13]/input");
+	
 
 	/*
 	 * Los Id`s
@@ -32,11 +33,20 @@ public class TCAfiliadoNuevo {
 	 */
 	By fechaExpedicion = By.id("fechaExpedicion");
 	By primerApellido = By.id("primerApellido");
+	By segundoApellido= By.id("segundoApellido");
+	By primerNombre = By.id("primerNombre");
+	
+	
+	
+	
+	
 
 
 	@BeforeTest
 	public void setUp() throws Exception {
+		
 		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		baseUrl = "https://10.11.230.81:81/";
 	}
@@ -45,13 +55,13 @@ public class TCAfiliadoNuevo {
 	public void tcAfiliadoNuevo() throws Exception {
 
 		loginPortal();
-
-		driver.findElement(By.name("numIdentificacion")).clear();
-		driver.findElement(By.name("numIdentificacion")).sendKeys("1324354657");
-		driver.findElement(By.name("enviar")).click();
-
-		// Timeout que espera 30seg a que cargue el servicio de Departamentos
 		Thread.sleep(30000);
+		driver.findElement(By.name("numIdentificacion")).clear();
+		driver.findElement(By.name("numIdentificacion")).sendKeys("1324354658");
+		driver.findElement(By.name("enviar")).click();
+	
+		// Timeout que espera 30seg a que cargue el servicio de Departamentos
+		Thread.sleep(60000);
 		new Select(driver.findElement(By.id("departamentoExpedicion"))).selectByVisibleText("ANTIOQUIA");
 		Thread.sleep(10000);
 		new Select(driver.findElement(By.id("ciudadExpedicion"))).selectByVisibleText("ANGOSTURA");
@@ -61,17 +71,20 @@ public class TCAfiliadoNuevo {
 
 		driver.findElement(primerApellido).clear();
 		driver.findElement(primerApellido).sendKeys("DeLasCasas");
-		driver.findElement(By.id("segundoApellido")).clear();
-		driver.findElement(By.id("segundoApellido")).sendKeys("Hernandez");
-		driver.findElement(By.id("primerNombre")).clear();
-		driver.findElement(By.id("primerNombre")).sendKeys("Lina");
+		driver.findElement(segundoApellido).clear();
+		driver.findElement(segundoApellido).sendKeys("Hernandez");
+		driver.findElement(primerNombre).clear();
+		driver.findElement(primerNombre).sendKeys("Lina");
+		
 		driver.findElement(By.id("segundoNombre")).clear();
 		driver.findElement(By.id("segundoNombre")).sendKeys("Marcela");
 		driver.findElement(By.id("fechaNacimiento")).clear();
 		driver.findElement(By.id("fechaNacimiento")).sendKeys("01/01/1985");
 		driver.findElement(mujer).click();
 		driver.findElement(hombre).click();
+		
 		new Select(driver.findElement(By.id("nacionalidad"))).selectByVisibleText("COLOMBIA");
+		
 		driver.findElement(By.id("ingresos")).clear();
 		driver.findElement(By.id("ingresos")).sendKeys("2800000");
 		driver.findElement(By.id("egresos")).clear();
@@ -91,7 +104,9 @@ public class TCAfiliadoNuevo {
 		driver.findElement(By.id("valorAporte")).clear();
 		driver.findElement(By.id("valorAporte")).sendKeys("50000");
 		driver.findElement(By.name("dirResidencia")).click();
+		
 		new Select(driver.findElement(By.name("via"))).selectByVisibleText("Carretera");
+		
 		driver.findElement(By.name("numVia")).clear();
 		driver.findElement(By.name("numVia")).sendKeys("23");
 		driver.findElement(By.name("inter")).clear();
@@ -99,10 +114,14 @@ public class TCAfiliadoNuevo {
 		driver.findElement(By.id("numero")).clear();
 		driver.findElement(By.id("numero")).sendKeys("45");
 		driver.findElement(By.linkText("Aceptar")).click();
+		
 		new Select(driver.findElement(By.id("entidadFinanciera"))).selectByVisibleText("BANCOLOMBIA");
+		
 		driver.findElement(By.id("numeroCuenta")).clear();
 		driver.findElement(By.id("numeroCuenta")).sendKeys("57493759837");
+		
 		new Select(driver.findElement(By.id("departamentoNacimiento"))).selectByVisibleText("CUNDINAMARCA");
+		
 		Thread.sleep(3000);
 		new Select(driver.findElement(By.id("departamentoResidencia"))).selectByVisibleText("HUILA");
 		Thread.sleep(3000);

@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.negativos.tiposcampo.TCTiposCamposAfiliado">
+      <class name="com.afiliacion.TCAfiliadoNuevoFirefox">
         <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="tiposCampoAfiliado"/>
+          <include name="setUp"/>
+          <include name="tcAfiliadoNuevo"/>
         </methods>
-      </class> <!-- com.negativos.tiposcampo.TCTiposCamposAfiliado -->
+      </class> <!-- com.afiliacion.TCAfiliadoNuevoFirefox -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
